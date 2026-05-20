@@ -374,8 +374,8 @@ def style_dataframe(df):
     
     pct_cols = ["QA%", "CVE%", "SLA%", "WOS%", "QS%", "PS%"]
     
-    styled = df.style.applymap(color_tier, subset=["Tier"])
-    styled = styled.applymap(color_pct, subset=pct_cols)
+    styled = df.style.map(color_tier, subset=["Tier"])
+    styled = styled.map(color_pct, subset=pct_cols)
     styled = styled.format({col: "{:.1f}" for col in pct_cols})
     
     return styled
