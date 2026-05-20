@@ -22,9 +22,6 @@ DEPLOY TO STREAMLIT CLOUD:
 ================================================================================
 """
 
-
-
-
 import streamlit as st
 import pandas as pd
 import requests
@@ -32,18 +29,18 @@ from requests.auth import HTTPBasicAuth
 from collections import defaultdict
 import time
 
+
 # ============== CONFIGURATION ==============
 JIRA_URL = "https://triamsecurity.atlassian.net"
-#EMAIL = "chakdeat123@gmail.com"
-EMAIL = "khushboo.agarwal@cleanstart.com"
-API_TOKEN = "ATATT3xFfGF0wCsIPeg3f2EV6dRXVHragSwXPrgM0OKXjJt9iYAdIgT32f9t0cvVLAUzbvQsS8LfE0UH-jb9buNnqHZ3ookrEy4-iFBoTpPywjFdlvbkHn7uI2zZ_N6xgrqJfFbxUDbNYqWB--YEHho2LYlg3x9UfBmrYpLLBImt8kI3KM5Qa-o=5E1B158F"  #Khushboo
-#API_TOKEN = "ATATT3xFfGF0Zcd5qBnAU2KAucTcfEt_xq68nZed_eEMU2dxlknVdbrBpV82uMqCBGe6bTyScDGmavf7Ij220j0G50nNwwpwx-0L98BAu6RIn9fUpGy2aS3CwfzzfRnYDfhO_mwEMHLWI9r1KAaFELdx_9R8CYnS8s7Cz_pok7j_XgtbcOSioVs=854A7CB9"
-#PROJECT_KEY = "CPKV1"  
-#SAMPLE_SIZE = 10000  # Fetch only 500 items for fast results
-# ===========================================
 
-#auth = HTTPBasicAuth(EMAIL, API_TOKEN)
-#headers = {"Accept": "application/json"}
+# For local testing, set these directly
+# For Streamlit Cloud, use st.secrets
+try:
+    EMAIL = st.secrets["EMAIL"]
+    API_TOKEN = st.secrets["API_TOKEN"]
+except:
+    EMAIL = "YOUR_EMAIL@company.com"
+    API_TOKEN = "YOUR_API_TOKEN"
 
 # Project configurations
 PROJECTS = {
