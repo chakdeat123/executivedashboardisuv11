@@ -44,8 +44,8 @@ except:
 
 # Project configurations
 PROJECTS = {
-    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 1000},
-    "CIV": {"name": "CIV Project", "sample_size": 1000}
+    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 2000},
+    "CIV": {"name": "CIV Project", "sample_size": 2000}
 }
 # ============================================
 
