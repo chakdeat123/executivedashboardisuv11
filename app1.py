@@ -494,7 +494,7 @@ def main():
     st.markdown("---")
     
     # Create tabs for each project
-    tab1, tab2, tab3 = st.tabs(["📊 Package&Image""📦 Package", "🔐 Image"])
+    tab1, tab2, tab3 = st.tabs(["📊 Package&Image", "📦 Package", "🔐 Image"])
     
     with tab1:
         render_project_tab("ISUV", PROJECTS["ISUV"])
