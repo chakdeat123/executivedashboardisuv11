@@ -44,9 +44,9 @@ except:
 
 # Project configurations
 PROJECTS = {
-    "ISUV": {"name": "Package&Image", "sample_size": 2000},
-    "CPKV1": {"name": "Package", "sample_size": 1000},
-    "CIV": {"name": "Image", "sample_size": 1000}
+    "ISUV": {"name": "Image SLA - Upgrades + Vulnerabilities", "sample_size": 2000},
+    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 1000},
+    "CIV": {"name": "Clean-Image-V1", "sample_size": 1000}
 }
 # ============================================
 
@@ -494,12 +494,15 @@ def main():
     st.markdown("---")
     
     # Create tabs for each project
-    tab1, tab2 = st.tabs(["📦 CPKV1 - Clean Package V1", "🔐 CIV"])
+    tab1, tab2, tab3 = st.tabs(["📊 Package&Image""📦 Package", "🔐 Image"])
     
     with tab1:
+        render_project_tab("ISUV", PROJECTS["ISUV"])
+    
+     with tab2:
         render_project_tab("CPKV1", PROJECTS["CPKV1"])
     
-    with tab2:
+    with tab3:
         render_project_tab("CIV", PROJECTS["CIV"])
     
     # Footer
