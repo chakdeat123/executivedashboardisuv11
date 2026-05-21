@@ -43,6 +43,9 @@ def check_password():
             username = st.text_input("Username", placeholder="Enter username")
             password = st.text_input("Password", type="password", placeholder="Enter password")
             submitted = st.form_submit_button("Login", use_container_width=True)
+            print("46 username:",username)
+            print("46 password:",password)
+            print("46 submitted:",submitted)
             
             if submitted:
                 if validate_credentials(username, password):
@@ -57,9 +60,11 @@ def check_password():
         try:
             # Get users from secrets
             users = st.secrets["auth"]["users"]
+            print("46 users:",users)
             
             if username in users:
                 stored_password = users[username]["password"]
+                print("46 stored_password:",stored_password)
                 # Secure comparison to prevent timing attacks
                 return hmac.compare_digest(password, stored_password)
             return False
