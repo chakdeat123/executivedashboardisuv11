@@ -44,8 +44,9 @@ except:
 
 # Project configurations
 PROJECTS = {
-    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 2000},
-    "CIV": {"name": "CIV Project", "sample_size": 2000}
+    "ISUV": {"name": "Package&Image", "sample_size": 2000},
+    "CPKV1": {"name": "Package", "sample_size": 1000},
+    "CIV": {"name": "Image", "sample_size": 1000}
 }
 # ============================================
 
@@ -374,8 +375,8 @@ def style_dataframe(df):
     
     pct_cols = ["QA%", "CVE%", "SLA%", "WOS%", "QS%", "PS%"]
     
-    styled = df.style.map(color_tier, subset=["Tier"])
-    styled = styled.map(color_pct, subset=pct_cols)
+    styled = df.style.applymap(color_tier, subset=["Tier"])
+    styled = styled.applymap(color_pct, subset=pct_cols)
     styled = styled.format({col: "{:.1f}" for col in pct_cols})
     
     return styled
