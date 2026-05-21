@@ -44,9 +44,9 @@ except:
 
 # Project configurations
 PROJECTS = {
-    "ISUV": {"name": "Image SLA - Upgrades + Vulnerabilities", "sample_size": 2000},
-    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 1000},
-    "CIV": {"name": "Clean-Image-V1", "sample_size": 1000}
+    "ISUV": {"name": "Image SLA - Upgrades + Vulnerabilities", "sample_size": 500},
+    "CPKV1": {"name": "Clean-Package-V1", "sample_size": 500},
+    "CIV": {"name": "Clean-Image-V1", "sample_size": 500}
 }
 # ============================================
 
@@ -375,8 +375,8 @@ def style_dataframe(df):
     
     pct_cols = ["QA%", "CVE%", "SLA%", "WOS%", "QS%", "PS%"]
     
-    styled = df.style.applymap(color_tier, subset=["Tier"])
-    styled = styled.applymap(color_pct, subset=pct_cols)
+    styled = df.style.map(color_tier, subset=["Tier"])
+    styled = styled.map(color_pct, subset=pct_cols)
     styled = styled.format({col: "{:.1f}" for col in pct_cols})
     
     return styled
@@ -494,7 +494,7 @@ def main():
     st.markdown("---")
     
     # Create tabs for each project
-    tab1, tab2, tab3 = st.tabs(["📊 Package&Image", "📦 Package", "🔐 Image"])
+    tab1, tab2, tab3 = st.tabs(["📊 Package_Image", "📦 Package", "🔐 Image"])
     
     with tab1:
         render_project_tab("ISUV", PROJECTS["ISUV"])
