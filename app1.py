@@ -499,7 +499,7 @@ def main():
     with tab1:
         render_project_tab("ISUV", PROJECTS["ISUV"])
     
-     with tab2:
+    with tab2:
         render_project_tab("CPKV1", PROJECTS["CPKV1"])
     
     with tab3:
