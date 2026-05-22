@@ -76,7 +76,7 @@ except:
     st.stop()
 
 PROJECT_KEY = "ISUV"
-SAMPLE_SIZE = 5000
+SAMPLE_SIZE = 15000
 
 # ============== STATUS MAPPING ==============
 # Based on your requirements:
