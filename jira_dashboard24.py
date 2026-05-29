@@ -584,7 +584,7 @@ lg_styled = (
     data["lg_df"]
         .style
         .format(fmt, na_rep="—")
-        .applymap(_color_sla, subset=sla_cols)
+        .map(_color_sla, subset=sla_cols)
 )
 st.dataframe(lg_styled, hide_index=True, use_container_width=True, height=180)
 
