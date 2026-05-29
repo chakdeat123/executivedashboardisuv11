@@ -478,11 +478,11 @@ def load_dashboard_data():
 st.title("📊 ISUV Executive Dashboard")
 #st.caption("Response 280526-14 · Label × Group rewritten · Count + SLA% per group")
 
-with st.expander("ℹ️ Group rules (status-based for Label × Group table)"):
+with st.expander("ℹ️ Groups [Status] Rules)"):
     for name, statuses in GROUP_DEFINITIONS:
         st.markdown(f"- **{name}** ← issues with status in: {', '.join(statuses)}")
 
-with st.expander("⏱️ SLA scoring rules"):
+with st.expander("⏱️ SLA Scoring Rules"):
     st.markdown(
         "**Per issue:** breached if `today > created + allotted_days`.  \n"
         "**SLA%** for a cell = `within_sla_count / total_judged × 100`.  \n"
@@ -490,6 +490,9 @@ with st.expander("⏱️ SLA scoring rules"):
         "**100%** = `nothing breached`.  \n"
         "**0%** = `everything breached`. \n"
     )
+    
+"""
+================================================================================    
     sla_pretty = pd.DataFrame({
         "Group":     list(SLA_DAYS.keys()),
         "UPGRADE":   [SLA_DAYS[g]["UPGRADE"]   for g in SLA_DAYS],
@@ -500,6 +503,10 @@ with st.expander("⏱️ SLA scoring rules"):
 
 with st.expander("🔧 JQL used"):
     st.code(build_jql(), language="sql")
+    
+
+================================================================================    
+"""
 
 c, _ = st.columns([1, 9])
 with c:
@@ -553,8 +560,8 @@ m3.metric("Assignees", data["assignees"])
 m4.metric("Status Columns", len(data["status_cols"]))
 level_total = int(data["df"][["L1", "L2", "L3", "L4"]].iloc[-1].sum())
 m5.metric("L1–L4 Tagged", f"{level_total:,}")
-st.caption(f"⏱️ Loaded in {elapsed:.1f}s · Cached 5 min · "
-           f"Level field: **{data['level_field'] or '⚠ NOT FOUND'}**")
+st.caption(f"⏱️ Loaded in {elapsed:.1f}s · Cached 5 min · ")
+           #f"Level field: **{data['level_field'] or '⚠ NOT FOUND'}**")
 
 # Group summary
 st.subheader("👥 Group Summary")
@@ -562,7 +569,7 @@ st.dataframe(data["group_summary"], hide_index=True,
              use_container_width=True, height=210)
 
 # NEW: Label x Group table
-st.subheader("🏷️ Label × Group — Count + SLA%")
+st.subheader("🏷️ Label v/s Group v/s Count v/s SLA%")
 
 def _color_sla(val):
     if pd.isna(val) or val is None:
@@ -588,7 +595,7 @@ lg_styled = (
 )
 st.dataframe(lg_styled, hide_index=True, use_container_width=True, height=180)
 
-with st.expander("🔎 Per-cell detail (counts behind the SLA %)"):
+with st.expander("🔎  Elaborated Matrix (counts behind the SLA %)"):
     st.dataframe(data["lg_detail"], hide_index=True, use_container_width=True)
 
 st.download_button(
@@ -602,7 +609,7 @@ st.download_button(
 st.divider()
 
 # Assignee table (unchanged)
-st.subheader("📋 Assignee × Status (with Group + L1–L4)")
+st.subheader("📋 Assignee v/s Group v/s Status v/s Count v/s L1–L4)")
 st.dataframe(data["df"], hide_index=True, use_container_width=True, height=600)
 
 st.download_button(
