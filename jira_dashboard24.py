@@ -491,22 +491,19 @@ with st.expander("⏱️ SLA Scoring Rules"):
         "**0%** = `everything breached`. \n"
     )
     
-"""
-================================================================================    
+  
     sla_pretty = pd.DataFrame({
         "Group":     list(SLA_DAYS.keys()),
         "UPGRADE":   [SLA_DAYS[g]["UPGRADE"]   for g in SLA_DAYS],
         "SEC_FIXES": [SLA_DAYS[g]["SEC_FIXES"] for g in SLA_DAYS],
         "NEW_IMAGE": [SLA_DAYS[g]["NEW_IMAGE"] for g in SLA_DAYS],
     })
-    st.dataframe(sla_pretty, hide_index=True, use_container_width=True)
+    #st.dataframe(sla_pretty, hide_index=True, use_container_width=True)
 
-with st.expander("🔧 JQL used"):
-    st.code(build_jql(), language="sql")
+#with st.expander("🔧 JQL used"):
+    #st.code(build_jql(), language="sql")
     
 
-================================================================================    
-"""
 
 c, _ = st.columns([1, 9])
 with c:
