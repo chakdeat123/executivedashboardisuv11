@@ -496,7 +496,7 @@ st.subheader("1️⃣ Epics")
 if data["epics_df"].empty:
     st.info("No epics found in LEAD.")
 else:
-    epics_styled = data["epics_df"].style.applymap(style_health, subset=["Health"])
+    epics_styled = data["epics_df"].style.map(style_health, subset=["Health"])
     st.dataframe(epics_styled, hide_index=True, use_container_width=True, height=400)
     st.download_button(
         "📥 Download Epics CSV",
@@ -540,7 +540,7 @@ else:
 
                 df = child_table(kids)
                 st.dataframe(
-                    df.style.applymap(style_health, subset=["Health"]),
+                    df.style.map(style_health, subset=["Health"]),
                     hide_index=True, use_container_width=True,
                 )
 
@@ -549,7 +549,7 @@ else:
         st.markdown("##### 📎 Orphans — Stories are not tagged to any Epic")
         df = child_table(data["orphans"])
         st.dataframe(
-            df.style.applymap(style_health, subset=["Health"]),
+            df.style.map(style_health, subset=["Health"]),
             hide_index=True, use_container_width=True, height=300,
         )
         st.caption(
