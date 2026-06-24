@@ -525,7 +525,7 @@ try:
                         auth=get_auth(), headers={"Accept": "application/json"}, timeout=10)
     test.raise_for_status()
     #st.success(f"✅ Connected as **{test.json().get('displayName')}**")
-    st.success(f"✅ Connected as **Amit Jain**")
+    st.success(f"✅ Connected - **cleanstart-security.atlassian **")
 except requests.HTTPError as e:
     st.error(f"❌ Connection failed: {e}")
     st.stop()
