@@ -592,7 +592,7 @@ lg_styled = (
 )
 st.dataframe(lg_styled, hide_index=True, use_container_width=True, height=180)
 
-with st.expander("🔎  Elaborated Matrix (counts behind the SLA %)"):
+with st.expander("🔎 Elaborated Matrix (counts behind the SLA %)", expanded=True):
     st.dataframe(data["lg_detail"], hide_index=True, use_container_width=True)
 
 st.download_button(
