@@ -607,7 +607,7 @@ st.divider()
 
 # Assignee table (unchanged)
 st.subheader("📋 Assignee v/s Group v/s Status v/s Count v/s L1–L4)")
-st.dataframe(data["df"], hide_index=True, use_container_width=True, height=600)
+st.dataframe(data["df"], hide_index=False, use_container_width=True, height=600)
 
 st.download_button(
     "📥 Download Assignee CSV",
