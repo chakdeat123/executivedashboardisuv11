@@ -509,7 +509,7 @@ else:
 st.divider()
 
 # ---------- 2. Stories under each Epic ----------
-st.subheader("2️⃣ Stories under each Epic ")
+st.subheader("2️⃣ Stories v/s Epic ")
 
 if not data["epics"]:
     st.info("No epics, so no groupings to show.")
