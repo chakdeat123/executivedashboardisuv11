@@ -480,7 +480,7 @@ st.subheader("📈 Summary")
 m1, m2, m3, m4, m5 = st.columns(5)
 m1.metric("Total Issues", f"{data['total_count']:,}")
 m2.metric("Epics", len(data["epics"]))
-m3.metric("Children Mapped",
+m3.metric("Stories Mapped",
           sum(len(v) for v in data["children_by_epic"].values()))
 m4.metric("Orphans", len(data["orphans"]))
 m5.metric("Done",
