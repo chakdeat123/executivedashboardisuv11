@@ -482,7 +482,7 @@ m1.metric("Total Issues", f"{data['total_count']:,}")
 m2.metric("Epics", len(data["epics"]))
 m3.metric("Stories Mapped",
           sum(len(v) for v in data["children_by_epic"].values()))
-m4.metric("Orphans", len(data["orphans"]))
+m4.metric("Orphans (Untagged Stories)", len(data["orphans"]))
 m5.metric("Done",
           sum(1 for it in data["all_rows"] if it["StatusCat"] == "done"))
 
