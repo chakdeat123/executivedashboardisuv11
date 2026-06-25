@@ -478,7 +478,7 @@ elapsed = time.time() - t0
 # ---------- summary ----------
 st.subheader("📈 Summary")
 m1, m2, m3, m4, m5 = st.columns(5)
-m1.metric("Total Issues", f"{data['total_count']:,}")
+m1.metric("Total (Epic/Story/Task)", f"{data['total_count']:,}")
 m2.metric("Epics", len(data["epics"]))
 m3.metric("Stories Mapped",
           sum(len(v) for v in data["children_by_epic"].values()))
