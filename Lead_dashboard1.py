@@ -546,7 +546,7 @@ else:
 
     # Orphans
     if data["orphans"]:
-        st.markdown("##### 📎 Orphans — Stories are not tagged to any Epic")
+        st.markdown("##### 📎 Orphans — Untagged Stories")
         df = child_table(data["orphans"])
         st.dataframe(
             df.style.map(style_health, subset=["Health"]),
