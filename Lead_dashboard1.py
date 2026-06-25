@@ -377,7 +377,7 @@ def load_dashboard_data():
         "Resolved":     fmt_dt(e["Resolved"]),
         "Age (days)":   e["AgeDays"],
         "Late (days)":  e["LatenessDays"],
-        "Children":     len(children_by_epic.get(e["Key"], [])),
+        "Stories":     len(children_by_epic.get(e["Key"], [])),
     } for e in epics])
 
     return {
